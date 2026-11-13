@@ -3,261 +3,637 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Habtamu Wendifraw – Data Science & ML Portfolio</title>
-<meta name="description" content="Portfolio of Habtamu Wendifraw: machine learning, data engineering, AI and business intelligence projects.">
+<title>Habtamu Wendifraw – Data Science & Machine Learning</title>
+<meta name="description" content="Portfolio of Habtamu Wendifraw: machine learning, data engineering, AI and business intelligence projects from Addis Ababa.">
+<meta property="og:title" content="Habtamu Wendifraw – Data Science & Machine Learning">
+<meta property="og:description" content="Machine learning, data engineering, AI and BI projects.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  color-scheme: light;
-  --paper:#F2F4F1; --surface:#FFFFFF; --ink:#1B2A3A; --muted:#556575; --rule:#CBD3D9;
-  --ml:#1F7A72; --eng:#B38A12; --ai:#7A3E65; --fc:#3F6C9A;
-  --focus:#1F7A72;
+  color-scheme:light;
+  --paper:#EFF2EE; --surface:#FFFFFF; --surface-2:#E4E9E4; --ink:#14233A; --muted:#536274; --rule:#C9D2D6; --grid:rgba(20,35,58,.07);
+  --ml:#14786E; --eng:#A97C06; --ai:#8A3B6E; --fc:#2F6497;
+  --shadow:0 1px 0 rgba(20,35,58,.04),0 18px 40px -24px rgba(20,35,58,.35);
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    color-scheme: dark;
-    --paper:#13202B; --surface:#1A2A37; --ink:#E6ECEF; --muted:#9EAEBB; --rule:#2C3E4D;
-    --ml:#4FB8AD; --eng:#E0B941; --ai:#C27BA8; --fc:#7FA9D6; --focus:#4FB8AD;
+    color-scheme:dark;
+    --paper:#0E1A27; --surface:#152535; --surface-2:#1C3043; --ink:#E7EDF0; --muted:#98A9B8; --rule:#283C4F; --grid:rgba(231,237,240,.05);
+    --ml:#4FC1B4; --eng:#E8BE45; --ai:#D484B6; --fc:#79AEE4;
+    --shadow:0 1px 0 rgba(0,0,0,.2),0 24px 48px -28px rgba(0,0,0,.8);
   }
 }
 :root[data-theme="dark"]{
-  color-scheme: dark;
-  --paper:#13202B; --surface:#1A2A37; --ink:#E6ECEF; --muted:#9EAEBB; --rule:#2C3E4D;
-  --ml:#4FB8AD; --eng:#E0B941; --ai:#C27BA8; --fc:#7FA9D6; --focus:#4FB8AD;
+  color-scheme:dark;
+  --paper:#0E1A27; --surface:#152535; --surface-2:#1C3043; --ink:#E7EDF0; --muted:#98A9B8; --rule:#283C4F; --grid:rgba(231,237,240,.05);
+  --ml:#4FC1B4; --eng:#E8BE45; --ai:#D484B6; --fc:#79AEE4;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 24px 48px -28px rgba(0,0,0,.8);
 }
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
-h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.1;margin:0}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 "Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.08;margin:0;font-weight:600}
+p{margin:0}
+a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ml);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:1.5rem;height:64px}
+.mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.mark svg{width:26px;height:26px}
+.nav ul{list-style:none;display:flex;gap:.25rem;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:.4rem .75rem;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--ink)}
+.nav ul a.on{color:var(--ink);background:var(--surface-2)}
+.theme{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.theme svg{width:18px;height:18px}
+@media (max-width:760px){.nav ul{display:none}.theme{margin-left:auto}}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center;padding:5rem 0 4rem}
-.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;letter-spacing:-.02em}
-.hero .role{font-size:1.25rem;color:var(--muted);margin:1.25rem 0 1.5rem;max-width:34ch}
-.hero p.lede{max-width:52ch;margin:0 0 2rem}
-.actions{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:999px;text-decoration:none;font-weight:600;border:2px solid var(--ink)}
+.hero{position:relative;padding:4.5rem 0 3rem;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-position:-1px -1px;border-bottom:1px solid var(--rule)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:3rem;align-items:center}
+.hero h1{font-size:clamp(3rem,7.2vw,6rem);font-weight:800;letter-spacing:-.035em;line-height:.95}
+.hero h1 span{display:block;color:var(--muted);font-weight:400}
+.hero .role{font-size:clamp(1.15rem,1.8vw,1.35rem);margin:1.75rem 0 1rem;max-width:30ch;font-weight:500}
+.hero .lede{color:var(--muted);max-width:50ch;margin-bottom:2.25rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.35rem;border-radius:999px;text-decoration:none;font-weight:600;border:1.5px solid var(--ink);transition:transform .15s ease,background .15s}
+.btn:hover{transform:translateY(-2px)}
 .btn.primary{background:var(--ink);color:var(--paper)}
-.plot{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:1rem}
-.plot canvas{display:block;width:100%;height:auto;aspect-ratio:1/0.85}
-.plot figcaption{font-size:.875rem;color:var(--muted);padding:.5rem .25rem 0}
+.btn svg{width:18px;height:18px}
+.where{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.95rem;margin-top:2rem}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--ml);box-shadow:0 0 0 0 var(--ml);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ml) 60%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+.plot{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.plot-head{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.2rem;border-bottom:1px solid var(--rule);font-size:.9rem;color:var(--muted)}
+.plot-head b{color:var(--ink);font-weight:600}
+.plot canvas{display:block;width:100%;height:440px;touch-action:pan-y;cursor:crosshair}
+.plot figcaption{padding:.8rem 1.2rem 1rem;font-size:.875rem;color:var(--muted);border-top:1px solid var(--rule)}
+@media (max-width:940px){.hero .wrap{grid-template-columns:1fr}.plot canvas{height:340px}}
 
-/* Filter legend */
-.section{padding:3.5rem 0;border-top:1px solid var(--rule)}
-.section h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:.75rem}
-.section .intro{color:var(--muted);max-width:60ch;margin:0 0 2rem}
-.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.legend button{font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:999px;padding:.4rem .9rem .4rem .7rem;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
-.legend button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface)}
-.dot{width:.7rem;height:.7rem;border-radius:50%;background:var(--c,var(--ink));flex:none}
+/* Sections */
+section{padding:6rem 0 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:end;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);letter-spacing:-.025em;font-weight:800}
+.sec-head p{color:var(--muted);max-width:52ch}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:1rem}}
 
-/* Projects */
-.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2.5rem}
-.feat{background:var(--surface);border:1px solid var(--rule);border-top:6px solid var(--c);border-radius:6px 6px 16px 16px;padding:1.5rem;display:flex;flex-direction:column}
-.feat h3{font-size:1.35rem;margin:.5rem 0 .6rem}
-.feat p{margin:0 0 1rem;flex:1}
-.kind{font-size:.875rem;color:var(--muted);display:inline-flex;align-items:center;gap:.4rem}
-.tools{font-size:.875rem;color:var(--muted);margin:0 0 1rem}
-.feat a.repo{font-weight:600}
-.rows{list-style:none;margin:0;padding:0}
-.rows li{display:grid;grid-template-columns:1rem 16rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--rule)}
-.rows li .dot{transform:translateY(.1rem)}
-.rows h3{font-size:1.1rem}
-.rows p{margin:0;color:var(--muted)}
-.rows a{font-weight:600;white-space:nowrap}
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem 1rem .5rem .8rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;cursor:pointer;font-weight:500;font-size:.95rem;transition:border-color .15s,background .15s}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .n{font-size:.8rem;opacity:.65}
+.dot{width:.7rem;height:.7rem;border-radius:50%;background:var(--c,var(--muted));flex:none}
+
+/* Featured */
+.featured{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:1.25rem;margin-bottom:1.25rem}
+.card{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:22px;padding:1.75rem;display:flex;flex-direction:column;gap:.9rem;box-shadow:var(--shadow);transition:transform .2s ease,opacity .25s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 55%,var(--rule))}
+.card.big{grid-row:span 2;padding:2.25rem}
+.card .kind{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--muted);font-weight:500}
+.card h3{font-size:1.55rem;letter-spacing:-.01em}
+.card.big h3{font-size:clamp(1.9rem,3vw,2.5rem)}
+.card p.sum{color:var(--muted);flex:1}
+.card.big .viz{height:auto;flex:1;min-height:240px}
+.card.big p.sum{flex:none}
+.card .viz{height:150px;margin:.25rem 0 .5rem;border-radius:14px;background:var(--surface-2);overflow:hidden}
+.card .viz svg{width:100%;height:100%;display:block}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.tags li{font-size:.8rem;padding:.2rem .6rem;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.card-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:.25rem}
+.link-btn{background:none;border:0;padding:0;cursor:pointer;font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.card-actions a{font-weight:600;color:var(--muted)}
+@media (max-width:860px){.featured{grid-template-columns:1fr}.card.big{grid-row:auto}}
+
+/* More list */
+.more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+@media (max-width:980px){.more{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.more{grid-template-columns:1fr}}
+.more .card{padding:1.4rem;border-radius:18px}
+.more .card h3{font-size:1.2rem}
+.dim{opacity:.28}
+.hl{border-color:var(--c)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--c) 40%,transparent),var(--shadow)}
 [hidden]{display:none!important}
+.empty{color:var(--muted);padding:1rem 0}
 
-/* Background */
-.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule);max-width:64ch}
-.timeline li{position:relative;padding:0 0 1.75rem 1.5rem}
-.timeline li::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
-.timeline h3{font-size:1.15rem;margin-bottom:.25rem}
-.timeline p{margin:0;color:var(--muted)}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem 2rem}
-.skills h3{font-size:1.05rem;margin-bottom:.35rem}
-.skills p{margin:0;color:var(--muted)}
+/* Pipeline */
+.pipe{background:var(--surface);border:1px solid var(--rule);border-radius:24px;box-shadow:var(--shadow);padding:1.5rem}
+.pipe-scroll{overflow-x:auto}
+.pipe svg{display:block;min-width:820px;width:100%;height:auto}
+.pipe .node rect{fill:var(--surface-2);stroke:var(--rule);stroke-width:1.5}
+.pipe .node text{fill:var(--ink);font:600 15px "Public Sans",system-ui,sans-serif}
+.pipe .node text.sub{fill:var(--muted);font-weight:400;font-size:12.5px}
+.pipe .node.hot rect{stroke:var(--eng);stroke-width:2}
+.pipe .wire{fill:none;stroke:var(--rule);stroke-width:2}
+.pipe .orch rect{fill:none;stroke:var(--eng);stroke-dasharray:6 6;stroke-width:1.5}
+.pipe .orch text{fill:var(--eng);font:600 13px "Public Sans",system-ui,sans-serif}
+.pipe .packet{fill:var(--eng)}
+.pipe-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.pipe-notes h4{font-size:1.05rem;margin-bottom:.35rem}
+.pipe-notes p{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.pipe-notes{grid-template-columns:1fr}}
 
-footer{padding:3.5rem 0 4rem;border-top:1px solid var(--rule)}
-footer h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:1rem}
-footer ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.75rem 2rem;font-weight:600}
+/* Skills */
+.skills{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:start}
+.skill-groups{display:grid;gap:1.5rem}
+.skill-groups h3{font-size:1rem;color:var(--muted);font-family:"Public Sans",sans-serif;font-weight:600;margin-bottom:.6rem}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem}
+.tool{padding:.45rem .9rem;border-radius:12px;border:1.5px solid var(--rule);background:var(--surface);cursor:pointer;font-weight:500;font-size:.95rem;transition:border-color .15s,background .15s}
+.tool:hover{border-color:var(--muted)}
+.tool[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.tool-panel{position:sticky;top:96px;background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:1.5rem;box-shadow:var(--shadow);min-height:220px}
+.tool-panel h3{font-size:1.5rem;margin-bottom:.5rem}
+.tool-panel p{color:var(--muted)}
+.tool-panel ul{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.6rem}
+.tool-panel li{display:flex;align-items:center;gap:.6rem}
+.tool-panel li button{background:none;border:0;padding:0;cursor:pointer;text-align:left;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule)}
+@media (max-width:860px){.skills{grid-template-columns:1fr}.tool-panel{position:static}}
 
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr;padding-top:3rem}
-  .featured{grid-template-columns:1fr}
-  .rows li{grid-template-columns:1rem 1fr;row-gap:.25rem}
-  .rows li p,.rows li a{grid-column:2}
-}
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:3rem}
+.about .story p{margin-bottom:1rem;font-size:1.1rem}
+.about .story p:first-child{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.4rem,2.4vw,1.8rem);line-height:1.3;font-weight:400}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:7px;top:.5rem;bottom:.5rem;width:2px;background:var(--rule)}
+.timeline li{position:relative;padding:0 0 2rem 2.25rem}
+.timeline li::before{content:"";position:absolute;left:0;top:.35rem;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--c,var(--ink))}
+.timeline h3{font-size:1.2rem;margin-bottom:.3rem}
+.timeline .org{color:var(--ink);font-weight:500;margin-bottom:.25rem}
+.timeline p{color:var(--muted)}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{margin:6rem 0 0;padding:4rem 0 3rem;border-top:1px solid var(--rule)}
+.contact h2{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:800;letter-spacing:-.035em;line-height:.95;max-width:14ch}
+.contact p{color:var(--muted);margin:1.5rem 0 2rem;max-width:48ch}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.9rem;padding:2.5rem 0 3rem;margin-top:3rem;border-top:1px solid var(--rule)}
+
+/* Dialog */
+dialog{border:1px solid var(--rule);border-radius:24px;padding:0;max-width:720px;width:calc(100% - 2rem);background:var(--surface);color:var(--ink);box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(10,18,28,.55);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .22s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){dialog[open]{animation:none}}
+.dlg-top{height:8px;background:var(--c)}
+.dlg-body{padding:2rem 2rem 2.25rem;max-height:80vh;overflow:auto}
+.dlg-body h2{font-size:clamp(1.7rem,3.5vw,2.3rem);margin:.6rem 0 1rem;letter-spacing:-.015em}
+.dlg-body h3{font-size:1.05rem;margin:1.5rem 0 .4rem}
+.dlg-body p{color:var(--muted)}
+.dlg-close{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);cursor:pointer;display:grid;place-items:center}
+.dlg-close svg{width:18px;height:18px}
+.steps{margin:.4rem 0 0;padding-left:1.25rem;color:var(--muted)}
+.steps li{margin-bottom:.35rem}
 </style>
 </head>
 <body>
-<main class="wrap">
 
-<header class="hero">
-  <div>
-    <h1>Habtamu Wendifraw</h1>
-    <p class="role">Data scientist and machine learning engineer in progress, with a background in enterprise IT.</p>
-    <p class="lede">I build models, data pipelines and dashboards that turn messy real-world data into decisions. I’m finishing a master’s in Business Intelligence and work in IT for a security printing company in Addis Ababa, so I care about systems that run reliably in real organizations.</p>
-    <div class="actions">
-      <a class="btn primary" href="#projects">See my projects</a>
-      <a class="btn" href="https://github.com/Habtu32">GitHub profile</a>
-    </div>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Habtamu Wendifraw, back to top">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="7" cy="8" r="3.2" fill="var(--ml)"/><circle cx="18" cy="6.5" r="3.2" fill="var(--eng)"/><circle cx="8" cy="19" r="3.2" fill="var(--ai)"/><circle cx="19" cy="18" r="3.2" fill="var(--fc)"/></svg>
+      Habtamu
+    </a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#pipeline">Engineering</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme" type="button" id="themeBtn" aria-label="Switch to dark theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="themeIcon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
   </div>
-  <figure class="plot" style="margin:0">
-    <canvas id="clusters" width="560" height="476" role="img" aria-label="Scatter plot of my projects grouped into four clusters: machine learning, data engineering, AI and NLP, and forecasting and analytics."></canvas>
-    <figcaption>My work, clustered the way my capstone clusters customers. Pick a group below to filter the projects.</figcaption>
-  </figure>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Habtamu<span>Wendifraw</span></h1>
+      <p class="role">Data scientist and machine learning engineer in progress, grounded in enterprise IT.</p>
+      <p class="lede">I build models, data pipelines and dashboards that turn messy real-world data into decisions people can act on. I’m completing a master’s in Business Intelligence while running IT operations across branch sites.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">Explore my work</a>
+        <a class="btn" href="https://github.com/Habtu32">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <p class="where"><span class="pulse" aria-hidden="true"></span>Based in Addis Ababa, Ethiopia. Open to data and ML roles.</p>
+    </div>
+    <figure class="plot">
+      <div class="plot-head"><span><b>My work, clustered</b></span><span id="plotHint">Move your cursor through the points</span></div>
+      <canvas id="clusters" role="img" aria-label="Interactive scatter plot of my projects grouped into four clusters: machine learning, data engineering, AI and NLP, and forecasting and analytics."></canvas>
+      <figcaption>Each point is a piece of my work, grouped the way my capstone groups customers. Click a cluster to see its projects.</figcaption>
+    </figure>
+  </div>
 </header>
 
-<section class="section" id="projects" aria-labelledby="projects-h">
-  <h2 id="projects-h">Projects</h2>
-  <p class="intro">End-to-end projects from my master’s program and the 10 Academy AI Mastery program. Each repository has a README with the problem, approach and results.</p>
-
-  <div class="legend" role="group" aria-label="Filter projects by area">
-    <button type="button" data-filter="all" aria-pressed="true"><span class="dot"></span>All projects</button>
-    <button type="button" data-filter="ml" aria-pressed="false"><span class="dot" style="--c:var(--ml)"></span>Machine learning</button>
-    <button type="button" data-filter="eng" aria-pressed="false"><span class="dot" style="--c:var(--eng)"></span>Data engineering</button>
-    <button type="button" data-filter="ai" aria-pressed="false"><span class="dot" style="--c:var(--ai)"></span>AI and NLP</button>
-    <button type="button" data-filter="fc" aria-pressed="false"><span class="dot" style="--c:var(--fc)"></span>Forecasting and analytics</button>
-  </div>
-
-  <div class="featured">
-    <article class="feat" data-area="ml" style="--c:var(--ml)">
-      <span class="kind"><span class="dot"></span>Master’s capstone</span>
-      <h3>Customer Segmentation & Personalization Engine</h3>
-      <p>RFM analysis and K-Means clustering on 4,800+ customer accounts, with an interactive dashboard that turns each segment into a marketing strategy.</p>
-      <p class="tools">Python, Scikit-learn, Streamlit</p>
-      <a class="repo" href="https://github.com/Habtu32/customer-segmentation-dashboard">View repository</a>
-    </article>
-    <article class="feat" data-area="eng" style="--c:var(--eng)">
-      <span class="kind"><span class="dot"></span>Data engineering</span>
-      <h3>Medical Telegram Data Warehouse</h3>
-      <p>An ELT platform that collects public Telegram posts about Ethiopian medical businesses, detects objects in images and serves analytics through an API.</p>
-      <p class="tools">Telethon, PostgreSQL, dbt, Dagster, YOLO, FastAPI, Docker</p>
-      <a class="repo" href="https://github.com/Habtu32/medical-telegram-warehouse">View repository</a>
-    </article>
-    <article class="feat" data-area="ai" style="--c:var(--ai)">
-      <span class="kind"><span class="dot"></span>AI and NLP</span>
-      <h3>RAG Complaint Chatbot</h3>
-      <p>A retrieval-augmented chatbot that helps product, support and compliance teams understand customer complaints in financial services.</p>
-      <p class="tools">FAISS, Sentence-Transformers, Gradio</p>
-      <a class="repo" href="https://github.com/Habtu32/rag-complaint-chatbot">View repository</a>
-    </article>
-  </div>
-
-  <ul class="rows">
-    <li data-area="ml" style="--c:var(--ml)"><span class="dot"></span><h3>Fraud Detection</h3><p>Fraud detection for e-commerce and bank transactions, with SHAP explanations of model decisions.</p><a href="https://github.com/Habtu32/fraud-detection">Repository</a></li>
-    <li data-area="ml" style="--c:var(--ml)"><span class="dot"></span><h3>Credit Risk Model</h3><p>Credit risk scoring built from customer transaction behavior.</p><a href="https://github.com/Habtu32/credit-risk-model">Repository</a></li>
-    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Brent Oil Change Points</h3><p>Bayesian change point detection linking breaks in oil prices to major world events.</p><a href="https://github.com/Habtu32/brent_oil_change_point_analysis">Repository</a></li>
-    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Financial Inclusion in Ethiopia</h3><p>Forecasting framework for Ethiopia’s financial inclusion indicators.</p><a href="https://github.com/Habtu32/ethiopia-fi-forecast">Repository</a></li>
-    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Portfolio Optimization</h3><p>ARIMA and LSTM forecasts of TSLA, BND and SPY feeding a Modern Portfolio Theory allocation.</p><a href="https://github.com/Habtu32/portfolio-optimization">Repository</a></li>
-    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Insurance Risk Analytics</h3><p>Risk and claims analysis on insurance policy data to find low-risk customer segments.</p><a href="https://github.com/Habtu32/insurance_risk_analytics">Repository</a></li>
-    <li data-area="ai" style="--c:var(--ai)"><span class="dot"></span><h3>Customer Experience Analytics</h3><p>Collecting and analyzing mobile banking app reviews to measure customer satisfaction.</p><a href="https://github.com/Habtu32/Customer-Experience-Analytics">Repository</a></li>
-    <li data-area="ai" style="--c:var(--ai)"><span class="dot"></span><h3>News Sentiment & Stocks</h3><p>How the sentiment of financial news relates to stock price movements.</p><a href="https://github.com/Habtu32/news-sentiment-stock-analysis">Repository</a></li>
-    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Solar Data Challenge</h3><p>Exploratory analysis of solar irradiance data to compare sites for investment.</p><a href="https://github.com/Habtu32/solar-challenge-week0">Repository</a></li>
-  </ul>
-</section>
-
-<section class="section" aria-labelledby="skills-h">
-  <h2 id="skills-h">Skills</h2>
-  <div class="skills">
-    <div><h3>Data and languages</h3><p>Python, SQL, PostgreSQL, Pandas, NumPy</p></div>
-    <div><h3>Machine learning</h3><p>Scikit-learn, Random Forest, K-Means, SHAP, ARIMA, LSTM, PyMC</p></div>
-    <div><h3>AI and NLP</h3><p>Retrieval-augmented generation, FAISS, Sentence-Transformers, YOLO</p></div>
-    <div><h3>Data engineering</h3><p>dbt, Dagster, Docker, FastAPI</p></div>
-    <div><h3>BI and apps</h3><p>Streamlit, Gradio, Power BI, Excel, Power Apps</p></div>
-    <div><h3>IT operations</h3><p>Desktop and printer support, incident reporting, multi-site device inventory</p></div>
+<main>
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="work-h">Selected work</h2>
+      <p>End-to-end projects from my master’s program and the 10 Academy AI Mastery program. Open any project for the problem, approach and tools.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects by area" id="filters"></div>
+    <div class="featured" id="featured"></div>
+    <div class="more" id="more"></div>
+    <p class="empty" id="empty" hidden>No projects use this combination. Pick another area or tool.</p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="bg-h">
-  <h2 id="bg-h">Background</h2>
-  <ol class="timeline">
-    <li><h3>IT Support, Toppan Security Ethiopia</h3><p>Hardware troubleshooting and maintenance across branch sites, plus Excel and Power BI reporting for operations.</p></li>
-    <li><h3>Master’s in Business Intelligence, Florida University Southeast (FUSE)</h3><p>Final capstone: customer segmentation and personalization engine.</p></li>
-    <li><h3>AI Mastery program, 10 Academy</h3><p>Weekly end-to-end projects in machine learning, data engineering and generative AI.</p></li>
-    <li><h3>Software Engineering program, ALX</h3><p>Foundations in Shell, C, Python and system administration.</p></li>
-  </ol>
+<section id="pipeline" aria-labelledby="pipe-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="pipe-h">How I build data products</h2>
+      <p>The Medical Telegram Data Warehouse, end to end: from raw public posts to an analytics API, scheduled and containerized.</p>
+    </div>
+    <div class="pipe">
+      <div class="pipe-scroll">
+        <svg viewBox="0 0 1000 310" role="img" aria-label="Pipeline: Telegram channels, scraped with Telethon, loaded to PostgreSQL, transformed with dbt, enriched with YOLO object detection, served with FastAPI. Dagster orchestrates every step and Docker packages it.">
+          <g class="orch">
+            <rect x="8" y="12" width="984" height="290" rx="18"/>
+            <text x="30" y="40">Dagster orchestrates every run</text>
+            <text x="970" y="40" text-anchor="end">Packaged with Docker</text>
+          </g>
+          <path class="wire" id="w1" d="M168 150 H 200"/>
+          <path class="wire" id="w2" d="M352 150 H 384"/>
+          <path class="wire" id="w3" d="M536 150 H 568"/>
+          <path class="wire" id="w4" d="M720 150 H 752"/>
+          <path class="wire" id="wy" d="M644 196 V 232"/>
+                    <g class="node"><rect x="24" y="104" width="144" height="92" rx="14"/><text x="96" y="144" text-anchor="middle">Telegram</text><text class="sub" x="96" y="166" text-anchor="middle">public channels</text></g>
+          <g class="node"><rect x="200" y="104" width="152" height="92" rx="14"/><text x="276" y="144" text-anchor="middle">Telethon</text><text class="sub" x="276" y="166" text-anchor="middle">extract posts, images</text></g>
+          <g class="node hot"><rect x="384" y="104" width="152" height="92" rx="14"/><text x="460" y="144" text-anchor="middle">PostgreSQL</text><text class="sub" x="460" y="166" text-anchor="middle">raw + warehouse</text></g>
+          <g class="node hot"><rect x="568" y="104" width="152" height="92" rx="14"/><text x="644" y="144" text-anchor="middle">dbt</text><text class="sub" x="644" y="166" text-anchor="middle">tested models</text></g>
+          <g class="node"><rect x="752" y="104" width="224" height="92" rx="14"/><text x="864" y="144" text-anchor="middle">FastAPI</text><text class="sub" x="864" y="166" text-anchor="middle">analytics endpoints</text></g>
+          <g class="node"><rect x="548" y="232" width="192" height="48" rx="12" style="fill:var(--surface)"/><text x="644" y="261" text-anchor="middle" style="font-size:14px">YOLO image enrichment</text></g>
+          <g id="packets"></g>
+        </svg>
+      </div>
+      <div class="pipe-notes">
+        <div><h4>Extract and load</h4><p>Posts and images from public channels are collected with Telethon and loaded into PostgreSQL as raw data.</p></div>
+        <div><h4>Transform and enrich</h4><p>dbt turns raw tables into tested analytical models, and YOLO object detection adds what appears in each image.</p></div>
+        <div><h4>Serve and schedule</h4><p>FastAPI exposes the results for analysis. Dagster runs the whole pipeline, and Docker makes it reproducible.</p></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer id="contact">
-  <h2>Get in touch</h2>
-  <p class="intro" style="color:var(--muted);margin:0 0 1.25rem">Open to data science, machine learning and BI roles and collaborations.</p>
-  <ul>
-    <li><a href="https://github.com/Habtu32">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a></li>
-    <li><a href="mailto:your.personal.email@example.com">Email</a></li>
-  </ul>
-</footer>
+<section id="skills" aria-labelledby="skills-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="skills-h">Toolkit</h2>
+      <p>Pick a tool to see which projects use it. The matching projects light up in the work section too.</p>
+    </div>
+    <div class="skills">
+      <div class="skill-groups" id="skillGroups"></div>
+      <aside class="tool-panel" id="toolPanel" aria-live="polite">
+        <h3>Choose a tool</h3>
+        <p>Every tool listed here is used in at least one public project, so you can check the code yourself.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="about-h">About</h2><p></p></div>
+    <div class="about">
+      <div class="story">
+        <p>I came to data science from the hardware side of IT, fixing desktops and printers across branch sites.</p>
+        <p>That work taught me how organizations actually run, where data gets lost, and why a model is only useful when people can trust and use it.</p>
+        <p>Today I combine that operations mindset with machine learning, data engineering and business intelligence to build tools that hold up in the real world.</p>
+      </div>
+      <ol class="timeline">
+        <li style="--c:var(--eng)"><h3>IT Support</h3><p class="org">Toppan Security Ethiopia</p><p>Hardware troubleshooting and maintenance across branch sites, incident reporting, and Excel and Power BI reporting for operations.</p></li>
+        <li style="--c:var(--ml)"><h3>Master’s in Business Intelligence</h3><p class="org">Florida University Southeast (FUSE)</p><p>Capstone: a customer segmentation and personalization engine.</p></li>
+        <li style="--c:var(--ai)"><h3>AI Mastery program</h3><p class="org">10 Academy</p><p>Weekly end-to-end projects in machine learning, data engineering and generative AI.</p></li>
+        <li style="--c:var(--fc)"><h3>Software Engineering program</h3><p class="org">ALX</p><p>Foundations in Shell, C, Python and system administration.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 id="contact-h">Let’s work with your data.</h2>
+    <p>I’m open to data science, machine learning and BI roles, and to collaborations on projects with real impact.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:your.personal.email@example.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a>
+      <a class="btn" href="https://github.com/Habtu32">GitHub</a>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer class="wrap foot">
+  <span>© <span id="yr"></span> Habtamu Wendifraw</span>
+  <a href="#top">Back to top</a>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="dlg-top"></div>
+  <button class="dlg-close" type="button" id="dlgClose" aria-label="Close case study">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="dlg-body" id="dlgBody"></div>
+</dialog>
 
 <script>
 (function(){
-  const canvas=document.getElementById('clusters');
-  const ctx=canvas.getContext('2d');
-  const W=canvas.width,H=canvas.height;
-  const areas=[
-    {key:'ml', label:'Machine learning',cx:.28,cy:.30},
-    {key:'eng',label:'Data engineering',cx:.74,cy:.26},
-    {key:'ai', label:'AI and NLP',cx:.26,cy:.74},
-    {key:'fc', label:'Forecasting and analytics',cx:.70,cy:.72}
-  ];
-  let active='all';
-  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
-  // seeded random for a stable layout
-  let s=7;function rnd(){s=(s*9301+49297)%233280;return s/233280}
-  function gauss(){return (rnd()+rnd()+rnd()-1.5)/1.5}
-  const pts=[];
-  areas.forEach(a=>{for(let i=0;i<34;i++){pts.push({a:a.key,sx:rnd()*W,sy:rnd()*H,tx:(a.cx+gauss()*.12)*W,ty:(a.cy+gauss()*.12)*H})}});
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let t=reduce?1:0,start=null;
-  function ease(x){return 1-Math.pow(1-x,3)}
+"use strict";
+const AREAS={
+  ml:{label:"Machine learning",color:"--ml"},
+  eng:{label:"Data engineering",color:"--eng"},
+  ai:{label:"AI and NLP",color:"--ai"},
+  fc:{label:"Forecasting and analytics",color:"--fc"}
+};
+const GH="https://github.com/Habtu32/";
+const PROJECTS=[
+  {id:"seg",repo:"customer-segmentation-dashboard",area:"ml",featured:1,kind:"Master’s capstone",
+   title:"Customer Segmentation & Personalization Engine",
+   sum:"RFM analysis and K-Means clustering on 4,800+ customer accounts, with an interactive dashboard that turns each segment into a marketing strategy.",
+   problem:"A single marketing approach for every customer wastes budget and misses the customers most worth keeping.",
+   steps:["Built Recency, Frequency and Monetary features from customer transaction history.","Grouped 4,800+ accounts with K-Means and profiled each segment.","Turned the segments into strategies in an interactive Streamlit dashboard."],
+   tools:["Python","Pandas","Scikit-learn","K-Means","Streamlit"],viz:"clusters"},
+  {id:"tg",repo:"medical-telegram-warehouse",area:"eng",featured:1,kind:"Data engineering",
+   title:"Medical Telegram Data Warehouse",
+   sum:"An ELT platform for public Telegram data on Ethiopian medical businesses, enriched with object detection and served through an API.",
+   problem:"Useful market signals about medical businesses are scattered across public Telegram channels in unstructured posts and images.",
+   steps:["Extracted posts and images with Telethon and loaded them into PostgreSQL.","Modeled and tested the warehouse with dbt.","Enriched images with YOLO object detection.","Served analytics with FastAPI, orchestrated by Dagster and packaged with Docker."],
+   tools:["Python","Telethon","PostgreSQL","dbt","YOLO","FastAPI","Dagster","Docker"],viz:"flow"},
+  {id:"rag",repo:"rag-complaint-chatbot",area:"ai",featured:1,kind:"AI and NLP",
+   title:"RAG Complaint Chatbot",
+   sum:"A retrieval-augmented chatbot that helps product, support and compliance teams understand customer complaints in financial services.",
+   problem:"Thousands of free-text complaints are too many for teams to read, so recurring issues go unnoticed.",
+   steps:["Cleaned and chunked complaint narratives.","Embedded the chunks with Sentence-Transformers and indexed them in FAISS.","Retrieved the most relevant complaints for each question and generated grounded answers.","Built a chat interface with Gradio."],
+   tools:["Python","Sentence-Transformers","FAISS","RAG","Gradio"],viz:"rag"},
+  {id:"fraud",repo:"fraud-detection",area:"ml",kind:"Machine learning",title:"Fraud Detection",
+   sum:"Fraud detection for e-commerce and bank transactions, with SHAP explanations of model decisions.",
+   problem:"Fraud is rare, so models must catch it without flagging honest customers, and decisions must be explainable.",
+   steps:["Engineered features from transaction data.","Trained and compared classification models, including Random Forest, on imbalanced data.","Explained predictions with SHAP."],
+   tools:["Python","Scikit-learn","Random Forest","SHAP"]},
+  {id:"credit",repo:"credit-risk-model",area:"ml",kind:"Machine learning",title:"Credit Risk Model",
+   sum:"A credit risk scoring framework built from customer transaction behavior.",
+   problem:"Lenders need to assess credit risk for customers without a traditional credit history.",
+   steps:["Derived behavioral features from transaction data.","Built a credit risk scoring model on those features."],
+   tools:["Python","Pandas","Scikit-learn"]},
+  {id:"brent",repo:"brent_oil_change_point_analysis",area:"fc",kind:"Forecasting and analytics",title:"Brent Oil Change Points",
+   sum:"Bayesian change point detection linking structural breaks in Brent oil prices to major world events.",
+   problem:"Oil price shocks affect whole economies, but it is hard to tell when the market truly changed.",
+   steps:["Modeled the price series with a Bayesian change point model in PyMC.","Matched detected breaks to major political and economic events."],
+   tools:["Python","PyMC","Pandas"]},
+  {id:"fi",repo:"ethiopia-fi-forecast",area:"fc",kind:"Forecasting and analytics",title:"Financial Inclusion in Ethiopia",
+   sum:"A data and forecasting framework for Ethiopia’s financial inclusion indicators.",
+   problem:"Policy makers need to see where financial inclusion is heading, not just where it has been.",
+   steps:["Collected and structured inclusion indicators.","Built forecasts and presented them in an interactive dashboard."],
+   tools:["Python","Pandas","Streamlit"]},
+  {id:"port",repo:"portfolio-optimization",area:"fc",kind:"Forecasting and analytics",title:"Portfolio Optimization",
+   sum:"ARIMA and LSTM forecasts of TSLA, BND and SPY feeding a Modern Portfolio Theory allocation.",
+   problem:"Investors want an allocation that balances expected return against risk.",
+   steps:["Forecast prices with ARIMA and LSTM models.","Used the forecasts to optimize a portfolio with Modern Portfolio Theory."],
+   tools:["Python","ARIMA","LSTM","Pandas"]},
+  {id:"ins",repo:"insurance_risk_analytics",area:"fc",kind:"Forecasting and analytics",title:"Insurance Risk Analytics",
+   sum:"Risk and claims analysis on insurance policy data to find low-risk customer segments.",
+   problem:"Insurers can offer better premiums when they know which customers are low risk.",
+   steps:["Explored claims and policy data.","Tested risk differences between customer groups."],
+   tools:["Python","Pandas"]},
+  {id:"cx",repo:"Customer-Experience-Analytics",area:"ai",kind:"AI and NLP",title:"Customer Experience Analytics",
+   sum:"Collecting and analyzing mobile banking app reviews to measure customer satisfaction.",
+   problem:"Banks need to know what customers like and dislike about their mobile apps.",
+   steps:["Collected app store reviews.","Analyzed sentiment and recurring themes."],
+   tools:["Python","NLP"]},
+  {id:"news",repo:"news-sentiment-stock-analysis",area:"ai",kind:"AI and NLP",title:"News Sentiment & Stocks",
+   sum:"How the sentiment of financial news headlines relates to stock price movements.",
+   problem:"Traders want to know whether the tone of the news moves prices.",
+   steps:["Scored headline sentiment.","Measured how sentiment relates to daily stock returns."],
+   tools:["Python","NLP","Pandas"]},
+  {id:"solar",repo:"solar-challenge-week0",area:"fc",kind:"Forecasting and analytics",title:"Solar Data Challenge",
+   sum:"Exploratory analysis of solar irradiance data to compare sites for solar investment.",
+   problem:"Solar investments depend on choosing the sites with the best conditions.",
+   steps:["Cleaned and explored irradiance and weather data.","Compared regions to support site selection."],
+   tools:["Python","Pandas"]}
+];
+const SKILL_GROUPS=[
+  ["Data and languages",["Python","SQL","PostgreSQL","Pandas"]],
+  ["Machine learning",["Scikit-learn","K-Means","Random Forest","SHAP","ARIMA","LSTM","PyMC"]],
+  ["AI and NLP",["RAG","FAISS","Sentence-Transformers","YOLO","NLP"]],
+  ["Data engineering",["dbt","Dagster","Docker","FastAPI","Telethon"]],
+  ["BI and apps",["Streamlit","Gradio","Power BI","Excel","Power Apps"]]
+];
+const OUTSIDE={"SQL":"I use SQL every day for querying and modeling data, including the dbt models in my warehouse project.","Power BI":"I use Power BI for operations reporting and dashboards at work.","Excel":"I use Excel for operational reporting, inventories and analysis at work.","Power Apps":"I build Power Apps tools for internal workflows at work."};
+
+const $=s=>document.querySelector(s);
+const root=document.documentElement;
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cssv=v=>getComputedStyle(root).getPropertyValue(v).trim();
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("#yr").textContent=new Date().getFullYear();
+
+/* Theme */
+const themeBtn=$("#themeBtn"),icon=$("#themeIcon");
+const MOON="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z";
+const SUN="M12 4V2M12 22v-2M4.9 4.9 3.5 3.5M20.5 20.5l-1.4-1.4M4 12H2M22 12h-2M4.9 19.1l-1.4 1.4M20.5 3.5l-1.4 1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z";
+function isDark(){const t=root.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function syncIcon(){const d=isDark();icon.setAttribute("d",d?SUN:MOON);themeBtn.setAttribute("aria-label",d?"Switch to light theme":"Switch to dark theme")}
+try{const saved=localStorage.getItem("theme");if(saved==="dark"||saved==="light")root.setAttribute("data-theme",saved)}catch(e){}
+syncIcon();
+themeBtn.addEventListener("click",()=>{const next=isDark()?"light":"dark";root.setAttribute("data-theme",next);try{localStorage.setItem("theme",next)}catch(e){}syncIcon();refreshColors()});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{syncIcon();refreshColors()});
+
+/* Nav state */
+const nav=$(".nav");
+addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>8),{passive:true});
+const navLinks=[...document.querySelectorAll(".nav ul a")];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
+["work","pipeline","skills","about","contact"].forEach(id=>io.observe(document.getElementById(id)));
+
+/* Mini visuals for featured cards */
+function vizSVG(type,area){
+  const c=`var(${AREAS[area].color})`;
+  if(type==="clusters"){
+    let s=11;const r=()=>(s=(s*9301+49297)%233280)/233280;let out="";
+    const cs=[[140,110,"var(--ml)"],[380,95,"var(--eng)"],[150,290,"var(--ai)"],[370,285,"var(--fc)"]];
+    const g2=()=>(r()+r()+r()-1.5)/1.5;
+    cs.forEach(([x,y,col])=>{for(let i=0;i<26;i++){out+=`<circle cx="${(x+g2()*85).toFixed(1)}" cy="${(y+g2()*65).toFixed(1)}" r="${(4+r()*3).toFixed(1)}" fill="${col}" opacity=".85"/>`}out+=`<path d="M${x-9} ${y}h18M${x} ${y-9}v18" stroke="var(--ink)" stroke-width="2.5"/>`});
+    return `<svg viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${out}</svg>`;
+  }
+  if(type==="flow"){
+    const xs=[30,130,230,330];let out="";
+    xs.forEach((x,i)=>{out+=`<rect x="${x}" y="55" width="70" height="40" rx="8" fill="var(--surface)" stroke="${c}" stroke-width="1.5"/>`;if(i<3)out+=`<path d="M${x+70} 75h30" stroke="${c}" stroke-width="2"/>`});
+    return `<svg viewBox="0 0 430 150" aria-hidden="true">${out}</svg>`;
+  }
+  let out="";for(let i=0;i<6;i++){out+=`<rect x="${30+i*20}" y="${30+i*10}" width="90" height="12" rx="6" fill="${c}" opacity="${.25+i*.12}"/>`}
+  out+=`<path d="M170 75h50" stroke="${c}" stroke-width="2"/><rect x="230" y="45" width="170" height="60" rx="14" fill="var(--surface)" stroke="${c}" stroke-width="1.5"/><rect x="248" y="62" width="110" height="8" rx="4" fill="${c}" opacity=".7"/><rect x="248" y="80" width="80" height="8" rx="4" fill="${c}" opacity=".4"/>`;
+  return `<svg viewBox="0 0 430 150" aria-hidden="true">${out}</svg>`;
+}
+
+/* Render projects */
+function cardHTML(p,big){
+  const col=AREAS[p.area].color;
+  return `<article class="card${big?" big":""}" data-id="${p.id}" data-area="${p.area}" style="--c:var(${col})">
+    <span class="kind"><span class="dot"></span>${esc(p.kind)}</span>
+    <h3>${esc(p.title)}</h3>
+    ${p.viz?`<div class="viz">${vizSVG(p.viz,p.area)}</div>`:""}
+    <p class="sum">${esc(p.sum)}</p>
+    <ul class="tags">${p.tools.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+    <div class="card-actions"><button type="button" class="link-btn" data-open="${p.id}">Read case study</button><a href="${GH+p.repo}">Code on GitHub</a></div>
+  </article>`;
+}
+const feat=PROJECTS.filter(p=>p.featured),rest=PROJECTS.filter(p=>!p.featured);
+$("#featured").innerHTML=feat.map((p,i)=>cardHTML(p,i===0)).join("");
+$("#more").innerHTML=rest.map(p=>cardHTML(p,false)).join("");
+const cards=[...document.querySelectorAll(".card")];
+
+/* Filters */
+let areaFilter="all",toolFilter=null;
+const HINT=matchMedia("(hover: none)").matches?"Tap a cluster to filter":"Move your cursor through the points";
+const counts={all:PROJECTS.length};PROJECTS.forEach(p=>counts[p.area]=(counts[p.area]||0)+1);
+$("#filters").innerHTML=`<button type="button" class="chip" data-area="all" aria-pressed="true"><span class="dot" style="--c:var(--ink)"></span>All <span class="n">${counts.all}</span></button>`+
+  Object.entries(AREAS).map(([k,a])=>`<button type="button" class="chip" data-area="${k}" aria-pressed="false"><span class="dot" style="--c:var(${a.color})"></span>${a.label} <span class="n">${counts[k]}</span></button>`).join("");
+const chips=[...document.querySelectorAll(".chip")];
+function setArea(a){
+  areaFilter=a;chips.forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.area===a)));
+  applyFilters();plot.setActive(a);
+}
+chips.forEach(c=>c.addEventListener("click",()=>setArea(c.dataset.area)));
+function applyFilters(){
+  let shown=0;
+  cards.forEach(el=>{
+    const p=PROJECTS.find(x=>x.id===el.dataset.id);
+    const okArea=areaFilter==="all"||p.area===areaFilter;
+    el.hidden=!okArea; if(okArea)shown++;
+    const match=toolFilter&&p.tools.includes(toolFilter);
+    el.classList.toggle("hl",!!match);
+    el.classList.toggle("dim",!!toolFilter&&!match);
+  });
+  $("#featured").hidden=!feat.some(p=>areaFilter==="all"||p.area===areaFilter);
+  $("#empty").hidden=shown>0;
+}
+
+/* Dialog */
+const dlg=$("#dlg");
+function openCase(id){
+  const p=PROJECTS.find(x=>x.id===id);
+  dlg.style.setProperty("--c",`var(${AREAS[p.area].color})`);
+  $("#dlgBody").innerHTML=`<span class="kind" style="display:flex;align-items:center;gap:.5rem;color:var(--muted);font-weight:500"><span class="dot"></span>${esc(p.kind)}</span>
+   <h2 id="dlgTitle">${esc(p.title)}</h2><p>${esc(p.sum)}</p>
+   <h3>The problem</h3><p>${esc(p.problem)}</p>
+   <h3>What I did</h3><ol class="steps">${p.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+   <h3>Tools</h3><ul class="tags">${p.tools.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+   <div class="actions" style="margin-top:1.75rem"><a class="btn primary" href="${GH+p.repo}">View code on GitHub</a></div>`;
+  if(typeof dlg.showModal==="function")dlg.showModal();else dlg.setAttribute("open","");
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openCase(b.dataset.open)});
+$("#dlgClose").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+
+/* Skills */
+$("#skillGroups").innerHTML=SKILL_GROUPS.map(([g,ts])=>`<div><h3>${esc(g)}</h3><div class="tools">${ts.map(t=>`<button type="button" class="tool" aria-pressed="false" data-tool="${esc(t)}">${esc(t)}</button>`).join("")}</div></div>`).join("");
+const toolBtns=[...document.querySelectorAll(".tool")];
+const panel=$("#toolPanel");
+toolBtns.forEach(b=>b.addEventListener("click",()=>{
+  const t=b.dataset.tool;toolFilter=toolFilter===t?null:t;
+  toolBtns.forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.tool===toolFilter)));
+  if(!toolFilter){panel.innerHTML=`<h3>Choose a tool</h3><p>Every tool listed here is used in at least one public project, so you can check the code yourself.</p>`}
+  else{
+    const used=PROJECTS.filter(p=>p.tools.includes(toolFilter));
+    panel.innerHTML=`<h3>${esc(toolFilter)}</h3>`+
+      (used.length?`<p>Used in ${used.length} project${used.length>1?"s":""}. Matching cards are highlighted in Selected work.</p><ul>${used.map(p=>`<li><span class="dot" style="--c:var(${AREAS[p.area].color})"></span><button type="button" data-open="${p.id}">${esc(p.title)}</button></li>`).join("")}</ul>`
+        :`<p>${esc(OUTSIDE[toolFilter]||"Used in my professional work.")}</p>`);
+  }
+  applyFilters();
+}));
+
+/* Pipeline packets */
+if(!reduce){
+  const g=$("#packets"),ns="http://www.w3.org/2000/svg";
+  const route="M96 150 H 864";
+  for(let i=0;i<4;i++){
+    const c=document.createElementNS(ns,"circle");c.setAttribute("r","5");c.setAttribute("class","packet");
+    const m=document.createElementNS(ns,"animateMotion");m.setAttribute("dur","6s");m.setAttribute("repeatCount","indefinite");m.setAttribute("path",route);m.setAttribute("begin",(i*1.5)+"s");
+    c.appendChild(m);g.appendChild(c);
+  }
+}
+
+/* Hero cluster plot */
+const plot=(function(){
+  const cv=$("#clusters"),ctx=cv.getContext("2d");
+  const centers=[{k:"ml",x:.27,y:.32},{k:"eng",x:.73,y:.27},{k:"ai",x:.28,y:.75},{k:"fc",x:.72,y:.72}];
+  let W=0,H=0,dpr=1,pts=[],colors={},active="all",hover=null,pointer=null,started=performance.now(),raf=null,idle=0;
+  let s=7;const rnd=()=>(s=(s*9301+49297)%233280)/233280;const g=()=>(rnd()+rnd()+rnd()-1.5)/1.5;
+  centers.forEach(c=>{for(let i=0;i<42;i++)pts.push({k:c.k,ox:g(),oy:g(),sx:rnd(),sy:rnd(),x:0,y:0,vx:0,vy:0,r:2.5+rnd()*2.5})});
+  function refresh(){colors={ink:cssv("--ink"),muted:cssv("--muted"),rule:cssv("--rule"),ml:cssv("--ml"),eng:cssv("--eng"),ai:cssv("--ai"),fc:cssv("--fc")}}
+  function size(){
+    const r=cv.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);
+    const nw=r.width,nh=r.height;const first=!W;
+    W=nw;H=nh;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    pts.forEach(p=>{const t=target(p);if(first){p.x=reduce?t.x:p.sx*W;p.y=reduce?t.y:p.sy*H}else{p.x=t.x;p.y=t.y}});
+    kick();
+  }
+  function target(p){const c=centers.find(c=>c.k===p.k);const sp=Math.min(W,H)*.14;return{x:c.x*W+p.ox*sp,y:c.y*H+p.oy*sp}}
+  function nearest(x,y){let best=null,bd=1e9;centers.forEach(c=>{const d=Math.hypot(c.x*W-x,c.y*H-y);if(d<bd){bd=d;best=c}});return bd<Math.min(W,H)*.22?best.k:null}
+  function step(){
+    let energy=0;
+    const t=Math.min(1,(performance.now()-started)/1600);const k=.012+.05*t;
+    pts.forEach(p=>{
+      const tg=target(p);let ax=(tg.x-p.x)*k,ay=(tg.y-p.y)*k;
+      if(pointer){const dx=p.x-pointer.x,dy=p.y-pointer.y,d=Math.hypot(dx,dy),R=80;if(d<R&&d>0.1){const f=(1-d/R)*2.2;ax+=dx/d*f;ay+=dy/d*f}}
+      p.vx=(p.vx+ax)*.86;p.vy=(p.vy+ay)*.86;p.x+=p.vx;p.y+=p.vy;energy+=Math.abs(p.vx)+Math.abs(p.vy);
+    });
+    return energy;
+  }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    const k=ease(t);
+    const t=reduce?1:Math.min(1,(performance.now()-started)/1600);
+    const focus=hover||(active!=="all"?active:null);
     pts.forEach(p=>{
-      const x=p.sx+(p.tx-p.sx)*k,y=p.sy+(p.ty-p.sy)*k;
-      const on=active==='all'||active===p.a;
-      ctx.globalAlpha=on?(t<1?.55+.45*k:.9):.15;
-      ctx.fillStyle=t<.35?css('--muted'):css('--'+p.a);
-      ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();
+      const on=!focus||focus===p.k;
+      ctx.globalAlpha=on?.9:.14;ctx.fillStyle=t<.25?colors.muted:colors[p.k];
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
     });
-    ctx.globalAlpha=Math.max(0,(t-.6)/.4);
-    ctx.font='600 15px "Public Sans", system-ui, sans-serif';
-    ctx.textAlign='center';
-    areas.forEach(a=>{
-      const on=active==='all'||active===a.key;
-      ctx.globalAlpha=Math.max(0,(t-.6)/.4)*(on?1:.35);
-      ctx.fillStyle=css('--ink');
-      ctx.fillText(a.label,a.cx*W,a.cy*H-.2*H+8);
+    const la=Math.max(0,(t-.55)/.45);
+    ctx.textAlign="center";ctx.font='600 14px "Public Sans", system-ui, sans-serif';
+    centers.forEach(c=>{
+      const on=!focus||focus===c.k;const x=c.x*W,y=c.y*H;
+      ctx.globalAlpha=la*(on?1:.3);ctx.strokeStyle=colors.ink;ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(x-7,y);ctx.lineTo(x+7,y);ctx.moveTo(x,y-7);ctx.lineTo(x,y+7);ctx.stroke();
+      if(focus===c.k){ctx.globalAlpha=la*.5;ctx.strokeStyle=colors[c.k];ctx.setLineDash([4,5]);ctx.beginPath();ctx.arc(x,y,Math.min(W,H)*.2,0,Math.PI*2);ctx.stroke();ctx.setLineDash([])}
+      ctx.globalAlpha=la*(on?1:.35);ctx.fillStyle=colors.ink;
+      const ly=y-Math.min(W,H)*.2-6;ctx.fillText(AREAS[c.k].label,x,Math.max(18,ly));
     });
     ctx.globalAlpha=1;
   }
-  function frame(ts){
-    if(start===null)start=ts+300;
-    t=Math.min(1,Math.max(0,(ts-start)/1800));
-    draw();
-    if(t<1)requestAnimationFrame(frame);
+  function loop(){
+    const e=reduce?0:step();draw();
+    idle=e<0.05&&!pointer&&performance.now()-started>1700?idle+1:0;
+    if(idle<20)raf=requestAnimationFrame(loop);else raf=null;
   }
-  if(reduce)draw();else requestAnimationFrame(frame);
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
-
-  const buttons=document.querySelectorAll('.legend button');
-  const items=document.querySelectorAll('[data-area]');
-  buttons.forEach(b=>b.addEventListener('click',()=>{
-    active=b.dataset.filter;
-    buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-    items.forEach(el=>{el.hidden=!(active==='all'||el.dataset.area===active)});
-    document.querySelector('.featured').hidden=![...document.querySelectorAll('.feat')].some(f=>!f.hidden);
-    draw();
-  }));
+  function kick(){if(!raf)raf=requestAnimationFrame(loop)}
+  cv.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;if(!reduce&&e.pointerType==="mouse")pointer={x,y};const h=nearest(x,y);if(h!==hover){hover=h;cv.style.cursor=h?"pointer":"crosshair";$("#plotHint").textContent=h?`${AREAS[h].label}: ${counts[h]} projects`:HINT}kick()});
+  cv.addEventListener("pointerleave",()=>{pointer=null;hover=null;$("#plotHint").textContent=HINT;kick()});
+  cv.addEventListener("click",e=>{const r=cv.getBoundingClientRect();const k=nearest(e.clientX-r.left,e.clientY-r.top);if(k){setArea(k);document.getElementById("work").scrollIntoView({behavior:reduce?"auto":"smooth"})}});
+  new ResizeObserver(size).observe(cv);
+  $("#plotHint").textContent=HINT;
+  refresh();
+  return{setActive(a){active=a;kick()},refresh(){refresh();kick()}};
+})();
+function refreshColors(){requestAnimationFrame(()=>plot.refresh())}
 })();
 </script>
 </body>
