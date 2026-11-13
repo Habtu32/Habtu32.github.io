@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Habtamu Wendifraw – Data Science & ML Portfolio</title>
+<meta name="description" content="Portfolio of Habtamu Wendifraw: machine learning, data engineering, AI and business intelligence projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#F2F4F1; --surface:#FFFFFF; --ink:#1B2A3A; --muted:#556575; --rule:#CBD3D9;
+  --ml:#1F7A72; --eng:#B38A12; --ai:#7A3E65; --fc:#3F6C9A;
+  --focus:#1F7A72;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#13202B; --surface:#1A2A37; --ink:#E6ECEF; --muted:#9EAEBB; --rule:#2C3E4D;
+    --ml:#4FB8AD; --eng:#E0B941; --ai:#C27BA8; --fc:#7FA9D6; --focus:#4FB8AD;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#13202B; --surface:#1A2A37; --ink:#E6ECEF; --muted:#9EAEBB; --rule:#2C3E4D;
+  --ml:#4FB8AD; --eng:#E0B941; --ai:#C27BA8; --fc:#7FA9D6; --focus:#4FB8AD;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center;padding:5rem 0 4rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;letter-spacing:-.02em}
+.hero .role{font-size:1.25rem;color:var(--muted);margin:1.25rem 0 1.5rem;max-width:34ch}
+.hero p.lede{max-width:52ch;margin:0 0 2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:999px;text-decoration:none;font-weight:600;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.plot{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:1rem}
+.plot canvas{display:block;width:100%;height:auto;aspect-ratio:1/0.85}
+.plot figcaption{font-size:.875rem;color:var(--muted);padding:.5rem .25rem 0}
+
+/* Filter legend */
+.section{padding:3.5rem 0;border-top:1px solid var(--rule)}
+.section h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:.75rem}
+.section .intro{color:var(--muted);max-width:60ch;margin:0 0 2rem}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.legend button{font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:999px;padding:.4rem .9rem .4rem .7rem;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.legend button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface)}
+.dot{width:.7rem;height:.7rem;border-radius:50%;background:var(--c,var(--ink));flex:none}
+
+/* Projects */
+.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2.5rem}
+.feat{background:var(--surface);border:1px solid var(--rule);border-top:6px solid var(--c);border-radius:6px 6px 16px 16px;padding:1.5rem;display:flex;flex-direction:column}
+.feat h3{font-size:1.35rem;margin:.5rem 0 .6rem}
+.feat p{margin:0 0 1rem;flex:1}
+.kind{font-size:.875rem;color:var(--muted);display:inline-flex;align-items:center;gap:.4rem}
+.tools{font-size:.875rem;color:var(--muted);margin:0 0 1rem}
+.feat a.repo{font-weight:600}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:1rem 16rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.rows li .dot{transform:translateY(.1rem)}
+.rows h3{font-size:1.1rem}
+.rows p{margin:0;color:var(--muted)}
+.rows a{font-weight:600;white-space:nowrap}
+[hidden]{display:none!important}
+
+/* Background */
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule);max-width:64ch}
+.timeline li{position:relative;padding:0 0 1.75rem 1.5rem}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.timeline h3{font-size:1.15rem;margin-bottom:.25rem}
+.timeline p{margin:0;color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem 2rem}
+.skills h3{font-size:1.05rem;margin-bottom:.35rem}
+.skills p{margin:0;color:var(--muted)}
+
+footer{padding:3.5rem 0 4rem;border-top:1px solid var(--rule)}
+footer h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:1rem}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.75rem 2rem;font-weight:600}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:3rem}
+  .featured{grid-template-columns:1fr}
+  .rows li{grid-template-columns:1rem 1fr;row-gap:.25rem}
+  .rows li p,.rows li a{grid-column:2}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header class="hero">
+  <div>
+    <h1>Habtamu Wendifraw</h1>
+    <p class="role">Data scientist and machine learning engineer in progress, with a background in enterprise IT.</p>
+    <p class="lede">I build models, data pipelines and dashboards that turn messy real-world data into decisions. I’m finishing a master’s in Business Intelligence and work in IT for a security printing company in Addis Ababa, so I care about systems that run reliably in real organizations.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/Habtu32">GitHub profile</a>
+    </div>
+  </div>
+  <figure class="plot" style="margin:0">
+    <canvas id="clusters" width="560" height="476" role="img" aria-label="Scatter plot of my projects grouped into four clusters: machine learning, data engineering, AI and NLP, and forecasting and analytics."></canvas>
+    <figcaption>My work, clustered the way my capstone clusters customers. Pick a group below to filter the projects.</figcaption>
+  </figure>
+</header>
+
+<section class="section" id="projects" aria-labelledby="projects-h">
+  <h2 id="projects-h">Projects</h2>
+  <p class="intro">End-to-end projects from my master’s program and the 10 Academy AI Mastery program. Each repository has a README with the problem, approach and results.</p>
+
+  <div class="legend" role="group" aria-label="Filter projects by area">
+    <button type="button" data-filter="all" aria-pressed="true"><span class="dot"></span>All projects</button>
+    <button type="button" data-filter="ml" aria-pressed="false"><span class="dot" style="--c:var(--ml)"></span>Machine learning</button>
+    <button type="button" data-filter="eng" aria-pressed="false"><span class="dot" style="--c:var(--eng)"></span>Data engineering</button>
+    <button type="button" data-filter="ai" aria-pressed="false"><span class="dot" style="--c:var(--ai)"></span>AI and NLP</button>
+    <button type="button" data-filter="fc" aria-pressed="false"><span class="dot" style="--c:var(--fc)"></span>Forecasting and analytics</button>
+  </div>
+
+  <div class="featured">
+    <article class="feat" data-area="ml" style="--c:var(--ml)">
+      <span class="kind"><span class="dot"></span>Master’s capstone</span>
+      <h3>Customer Segmentation & Personalization Engine</h3>
+      <p>RFM analysis and K-Means clustering on 4,800+ customer accounts, with an interactive dashboard that turns each segment into a marketing strategy.</p>
+      <p class="tools">Python, Scikit-learn, Streamlit</p>
+      <a class="repo" href="https://github.com/Habtu32/customer-segmentation-dashboard">View repository</a>
+    </article>
+    <article class="feat" data-area="eng" style="--c:var(--eng)">
+      <span class="kind"><span class="dot"></span>Data engineering</span>
+      <h3>Medical Telegram Data Warehouse</h3>
+      <p>An ELT platform that collects public Telegram posts about Ethiopian medical businesses, detects objects in images and serves analytics through an API.</p>
+      <p class="tools">Telethon, PostgreSQL, dbt, Dagster, YOLO, FastAPI, Docker</p>
+      <a class="repo" href="https://github.com/Habtu32/medical-telegram-warehouse">View repository</a>
+    </article>
+    <article class="feat" data-area="ai" style="--c:var(--ai)">
+      <span class="kind"><span class="dot"></span>AI and NLP</span>
+      <h3>RAG Complaint Chatbot</h3>
+      <p>A retrieval-augmented chatbot that helps product, support and compliance teams understand customer complaints in financial services.</p>
+      <p class="tools">FAISS, Sentence-Transformers, Gradio</p>
+      <a class="repo" href="https://github.com/Habtu32/rag-complaint-chatbot">View repository</a>
+    </article>
+  </div>
+
+  <ul class="rows">
+    <li data-area="ml" style="--c:var(--ml)"><span class="dot"></span><h3>Fraud Detection</h3><p>Fraud detection for e-commerce and bank transactions, with SHAP explanations of model decisions.</p><a href="https://github.com/Habtu32/fraud-detection">Repository</a></li>
+    <li data-area="ml" style="--c:var(--ml)"><span class="dot"></span><h3>Credit Risk Model</h3><p>Credit risk scoring built from customer transaction behavior.</p><a href="https://github.com/Habtu32/credit-risk-model">Repository</a></li>
+    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Brent Oil Change Points</h3><p>Bayesian change point detection linking breaks in oil prices to major world events.</p><a href="https://github.com/Habtu32/brent_oil_change_point_analysis">Repository</a></li>
+    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Financial Inclusion in Ethiopia</h3><p>Forecasting framework for Ethiopia’s financial inclusion indicators.</p><a href="https://github.com/Habtu32/ethiopia-fi-forecast">Repository</a></li>
+    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Portfolio Optimization</h3><p>ARIMA and LSTM forecasts of TSLA, BND and SPY feeding a Modern Portfolio Theory allocation.</p><a href="https://github.com/Habtu32/portfolio-optimization">Repository</a></li>
+    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Insurance Risk Analytics</h3><p>Risk and claims analysis on insurance policy data to find low-risk customer segments.</p><a href="https://github.com/Habtu32/insurance_risk_analytics">Repository</a></li>
+    <li data-area="ai" style="--c:var(--ai)"><span class="dot"></span><h3>Customer Experience Analytics</h3><p>Collecting and analyzing mobile banking app reviews to measure customer satisfaction.</p><a href="https://github.com/Habtu32/Customer-Experience-Analytics">Repository</a></li>
+    <li data-area="ai" style="--c:var(--ai)"><span class="dot"></span><h3>News Sentiment & Stocks</h3><p>How the sentiment of financial news relates to stock price movements.</p><a href="https://github.com/Habtu32/news-sentiment-stock-analysis">Repository</a></li>
+    <li data-area="fc" style="--c:var(--fc)"><span class="dot"></span><h3>Solar Data Challenge</h3><p>Exploratory analysis of solar irradiance data to compare sites for investment.</p><a href="https://github.com/Habtu32/solar-challenge-week0">Repository</a></li>
+  </ul>
+</section>
+
+<section class="section" aria-labelledby="skills-h">
+  <h2 id="skills-h">Skills</h2>
+  <div class="skills">
+    <div><h3>Data and languages</h3><p>Python, SQL, PostgreSQL, Pandas, NumPy</p></div>
+    <div><h3>Machine learning</h3><p>Scikit-learn, Random Forest, K-Means, SHAP, ARIMA, LSTM, PyMC</p></div>
+    <div><h3>AI and NLP</h3><p>Retrieval-augmented generation, FAISS, Sentence-Transformers, YOLO</p></div>
+    <div><h3>Data engineering</h3><p>dbt, Dagster, Docker, FastAPI</p></div>
+    <div><h3>BI and apps</h3><p>Streamlit, Gradio, Power BI, Excel, Power Apps</p></div>
+    <div><h3>IT operations</h3><p>Desktop and printer support, incident reporting, multi-site device inventory</p></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="bg-h">
+  <h2 id="bg-h">Background</h2>
+  <ol class="timeline">
+    <li><h3>IT Support, Toppan Security Ethiopia</h3><p>Hardware troubleshooting and maintenance across branch sites, plus Excel and Power BI reporting for operations.</p></li>
+    <li><h3>Master’s in Business Intelligence, Florida University Southeast (FUSE)</h3><p>Final capstone: customer segmentation and personalization engine.</p></li>
+    <li><h3>AI Mastery program, 10 Academy</h3><p>Weekly end-to-end projects in machine learning, data engineering and generative AI.</p></li>
+    <li><h3>Software Engineering program, ALX</h3><p>Foundations in Shell, C, Python and system administration.</p></li>
+  </ol>
+</section>
+
+<footer id="contact">
+  <h2>Get in touch</h2>
+  <p class="intro" style="color:var(--muted);margin:0 0 1.25rem">Open to data science, machine learning and BI roles and collaborations.</p>
+  <ul>
+    <li><a href="https://github.com/Habtu32">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/your-linkedin">LinkedIn</a></li>
+    <li><a href="mailto:your.personal.email@example.com">Email</a></li>
+  </ul>
+</footer>
+</main>
+
+<script>
+(function(){
+  const canvas=document.getElementById('clusters');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  const areas=[
+    {key:'ml', label:'Machine learning',cx:.28,cy:.30},
+    {key:'eng',label:'Data engineering',cx:.74,cy:.26},
+    {key:'ai', label:'AI and NLP',cx:.26,cy:.74},
+    {key:'fc', label:'Forecasting and analytics',cx:.70,cy:.72}
+  ];
+  let active='all';
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+  // seeded random for a stable layout
+  let s=7;function rnd(){s=(s*9301+49297)%233280;return s/233280}
+  function gauss(){return (rnd()+rnd()+rnd()-1.5)/1.5}
+  const pts=[];
+  areas.forEach(a=>{for(let i=0;i<34;i++){pts.push({a:a.key,sx:rnd()*W,sy:rnd()*H,tx:(a.cx+gauss()*.12)*W,ty:(a.cy+gauss()*.12)*H})}});
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t=reduce?1:0,start=null;
+  function ease(x){return 1-Math.pow(1-x,3)}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const k=ease(t);
+    pts.forEach(p=>{
+      const x=p.sx+(p.tx-p.sx)*k,y=p.sy+(p.ty-p.sy)*k;
+      const on=active==='all'||active===p.a;
+      ctx.globalAlpha=on?(t<1?.55+.45*k:.9):.15;
+      ctx.fillStyle=t<.35?css('--muted'):css('--'+p.a);
+      ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();
+    });
+    ctx.globalAlpha=Math.max(0,(t-.6)/.4);
+    ctx.font='600 15px "Public Sans", system-ui, sans-serif';
+    ctx.textAlign='center';
+    areas.forEach(a=>{
+      const on=active==='all'||active===a.key;
+      ctx.globalAlpha=Math.max(0,(t-.6)/.4)*(on?1:.35);
+      ctx.fillStyle=css('--ink');
+      ctx.fillText(a.label,a.cx*W,a.cy*H-.2*H+8);
+    });
+    ctx.globalAlpha=1;
+  }
+  function frame(ts){
+    if(start===null)start=ts+300;
+    t=Math.min(1,Math.max(0,(ts-start)/1800));
+    draw();
+    if(t<1)requestAnimationFrame(frame);
+  }
+  if(reduce)draw();else requestAnimationFrame(frame);
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+
+  const buttons=document.querySelectorAll('.legend button');
+  const items=document.querySelectorAll('[data-area]');
+  buttons.forEach(b=>b.addEventListener('click',()=>{
+    active=b.dataset.filter;
+    buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    items.forEach(el=>{el.hidden=!(active==='all'||el.dataset.area===active)});
+    document.querySelector('.featured').hidden=![...document.querySelectorAll('.feat')].some(f=>!f.hidden);
+    draw();
+  }));
+})();
+</script>
+</body>
+</html>
